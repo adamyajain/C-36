@@ -1,29 +1,33 @@
 class Form{
  constructor(){
-
+ this.input  = createInput("name");
+ this.button = createButton('play');
+ this.greeting = createElement('h1');
+ }
+ hide(){
+     this.input.hide();
+     this.button.hide();
+     this.greeting.hide();
  }
  display(){
-    
-  var title = createElement('h1');
+  var title = createElement('h1'); 
   fill("blue");
   stroke(20)
-  title.html("MULTIPLAYER GAME");
-  title.position(130,0);
+  this.title.html("MULTIPLAYER GAME");
+  this.title.position(130,0);
   fill("blue");
-  var input = createInput("name");
-  var button = createButton('play');
-  input.position(130,160);
-  button.position(250,200);
-  button.mousePressed(function(){
-      input.hide();
-      button.hide();
-      var name = input.value();
+  this.input.position(130,160);
+  this.button.position(250,200);
+  this.button.mousePressed(() =>{
+      this.input.hide();
+     this.button.hide();
+      player.name = this.input.value();
       playerCount+=1;
-      player.update(name);
+      player.index = playerCount;
+      player.update();
       player.updateCount(playerCount);
-      var greeting = createElement('h1');
-      greeting.html("welcome"+name);
-      greeting.position(130,160);
+      this.greeting.html("welcome"+player.name);
+      this.greeting.position(130,160);
   })
  }
 }
